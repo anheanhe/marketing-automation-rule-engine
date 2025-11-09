@@ -63,8 +63,6 @@ export function RulesList({ onEdit }: RulesListProps) {
 
       if (!response.ok) throw new Error('Error ejecutando regla');
 
-      const result = await response.json();
-      console.log('Ejecución completada:', result);
       alert('Regla ejecutada correctamente');
     } catch (error) {
       console.error('Error executing rule:', error);
