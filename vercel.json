@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/demo/loyalty-software/:path*",
+      "destination": "/demo/loyalty-software/index.html"
+    }
+  ]
+}
