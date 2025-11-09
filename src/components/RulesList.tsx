@@ -102,6 +102,25 @@ export function RulesList({ onEdit }: RulesListProps) {
     }
   };
 
+  const getOperatorLabel = (operator: string) => {
+    const labels: Record<string, string> = {
+      '>': 'mayor que',
+      '<': 'menor que',
+      '>=': 'mayor o igual',
+      '<=': 'menor o igual',
+      '=': 'igual a',
+      '!=': 'diferente de',
+      'days_ago': 'días desde',
+      'days_ahead': 'días hasta',
+      'is_birthday_month': 'es mes de cumpleaños',
+      'contains': 'contiene',
+      'not_contains': 'no contiene',
+      'starts_with': 'comienza con',
+      'ends_with': 'termina con',
+    };
+    return labels[operator] || operator;
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -178,7 +197,7 @@ export function RulesList({ onEdit }: RulesListProps) {
                             <span className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-mono">
                               {cond.field}
                             </span>
-                            <span className="text-gray-500">{cond.operator}</span>
+                            <span className="text-gray-500">{getOperatorLabel(cond.operator)}</span>
                             <span className="bg-gray-100 px-2 py-0.5 rounded font-mono">
                               {JSON.stringify(cond.value)}
                             </span>
